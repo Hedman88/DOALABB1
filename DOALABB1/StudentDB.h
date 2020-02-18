@@ -8,5 +8,6 @@ class StudentDB
 public:
 	void addStudent(Student s);
 	void removeStudent(string studentName);
+	Student getStudent(int i);
 };
 

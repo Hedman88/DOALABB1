@@ -27,3 +27,9 @@ string Course::getInfo() {
 	cout << info << endl;
 	return info;
 }
+void Course::setNext(Course* c) {
+	nextCourse = c;
+}
+Course* Course::getNext() {
+	return nextCourse;
+}

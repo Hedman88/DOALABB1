@@ -14,3 +14,7 @@ void StudentDB::removeStudent(string studentName) {
 	}
 	cout << "Course not found" << endl;
 }
+
+Student StudentDB::getStudent(int i) {
+	return database[i];
+}
