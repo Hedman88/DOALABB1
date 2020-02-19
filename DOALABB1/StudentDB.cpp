@@ -10,9 +10,13 @@ void StudentDB::removeStudent(string studentName) {
 		if (studentName == database[i].getName()) {
 
 			database.erase(i+database.begin());
+			return;
 		}
 	}
-	cout << "Course not found" << endl;
+}
+
+void StudentDB::removeStudent(int i) {
+	database.erase(i + database.begin());
 }
 
 Student StudentDB::getStudent(int i) {

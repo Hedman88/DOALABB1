@@ -16,7 +16,6 @@ Course Student::getCourse(string courseName) {
 			return courses.at(i);
 		}
 	}
-	cout << "Course not found" << endl;
 	return Course("0", 0, "0");
 }
 void Student::addCourse(Course c) {
@@ -27,9 +26,9 @@ void Student::removeCourse(string courseName) {
 	for (int i = 0; i < courses.size(); i++) {
 		if (courseName == courses[i].getName()) {
 			courses.erase(i + courses.begin());
+			return;
 		}
 	}
-	cout << "Course not found" << endl;
 	return;
 }
 void Student::addCourse(Course *c) {
@@ -48,14 +47,16 @@ void Student::removeCourseLL(string courseName) {
 	while (temp != nullptr) {
 		if (name == temp->getName() && temp2 != nullptr) {
 			temp2->setNext(temp->getNext());
-			delete temp;
+			temp = nullptr;
 		}
-		else {
+		else if(name== temp->getName() && temp2 == nullptr){
 			courseHead = courseHead->getNext();
-			delete temp;
+			temp = nullptr;
 		}
 		temp2 = temp;
-		temp = temp->getNext();
+		if (temp != nullptr) {
+			temp = temp->getNext();
+		}
 	}
 }
 void Student::setNext(Student* s) {

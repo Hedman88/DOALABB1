@@ -16,18 +16,22 @@ void LinkedList::removeStudent(string name) {
 	while (temp != nullptr) {
 		if (name == temp->getName() && temp2 != nullptr) {
 			temp2->setNext(temp->getNext());
-			delete temp;
+			temp = nullptr;
 		}
-		else {
+		else if(name == temp->getName() && temp2 == nullptr){
 			head = head->getNext();
-			delete temp;
+			temp = nullptr;
 		}
 		temp2 = temp;
-		temp = temp->getNext();
+		if (temp != nullptr) {
+			temp = temp->getNext();
+		}
 	}
 }
 Student* LinkedList::getStudent(int i) {
-	for (int k = 0; k <= i; k++) {
-
+	Student* temp = head;
+	for (int k = 0; k < i; k++) {
+		temp = temp->getNext();
 	}
+	return temp;
 }
