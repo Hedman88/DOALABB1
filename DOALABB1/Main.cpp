@@ -12,7 +12,7 @@ int main() {
 
 	StudentDB db;
 	LinkedList LL;
-	int students = 100000;
+	int students = 10000;
 	cout << "Array-based: " << endl;
 	for (int i = 0; i < 4; i++) {
 		auto start = chrono::steady_clock::now();
