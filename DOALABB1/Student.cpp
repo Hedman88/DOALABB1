@@ -19,7 +19,6 @@ Course Student::getCourse(string courseName) {
 	return Course("0", 0, "0");
 }
 void Student::addCourse(Course c) {
-	//cout << "adding course" << endl;
 	courses.push_back(c);
 }
 void Student::removeCourse(string courseName) {
@@ -49,7 +48,7 @@ void Student::removeCourseLL(string courseName) {
 			temp2->setNext(temp->getNext());
 			temp = nullptr;
 		}
-		else if(name== temp->getName() && temp2 == nullptr){
+		else if(name == temp->getName() && temp2 == nullptr){
 			courseHead = courseHead->getNext();
 			temp = nullptr;
 		}

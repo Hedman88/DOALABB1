@@ -16,26 +16,37 @@ int main() {
 	stack.fill(pal);
 	queue2.fill(noPal);
 	stack2.fill(noPal);
-	/*cout << "Is " << pal << " a palindrome?" << endl << stack.isPalindrome(pal) << endl;
-	cout << "Is " << noPal << " a palindrome?" << endl << stack.isPalindrome(noPal) << endl;
-*/
+
+	auto start3 = chrono::steady_clock::now();
+	cout << stack.isPalindrome(pal) << endl; //This part is using only stack
+	auto end3 = chrono::steady_clock::now();
+	cout << chrono::duration_cast<chrono::microseconds>(end3 - start3).count() << " microseconds." << endl;
+	auto start4 = chrono::steady_clock::now();
+	cout << stack.isPalindrome(noPal) << endl;
+	auto end4 = chrono::steady_clock::now();
+	cout << chrono::duration_cast<chrono::microseconds>(end4 - start4).count() << " microseconds." << endl;
+
 	auto start = chrono::steady_clock::now();
 
 	bool isPal = true;
-	while (queue.getSize() != 0) {
-		if (queue.deQ() != stack.pop()) {
-			isPal = false;
+	while (queue.getSize() != 0 && !isPal) { // adding && !isPal will reduce time by a lot!
+		char a = queue.deQ();
+		char b = stack.pop();
+		//cout << a << endl;
+		//cout << b << endl;
+		if (a != b) { // comparing the the first element of queue with the last element of stack
+			isPal = false; // if elements are not identical one time we know it's not a palindrome
 		}
 	}
-
+	cout << endl;
 	cout << ((isPal) ? "true" : "false") << endl;
 	auto end = chrono::steady_clock::now();
 	cout << chrono::duration_cast<chrono::microseconds>(end - start).count() << " microseconds." << endl;
 	auto start2 = chrono::steady_clock::now();
 
 	isPal = true;
-	while (queue2.getSize() != 0) {
-		if (queue2.deQ() != stack2.pop()) {
+	while (queue2.getSize() != 0) { // adding && !isPal will reduce time by a lot!
+		if (queue2.deQ() != stack2.pop()) { // comparing the the first element of queue with the last element of stack
 			isPal = false;
 		}
 	}

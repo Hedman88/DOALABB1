@@ -12,7 +12,7 @@ int main() {
 
 	StudentDB db;
 	LinkedList LL;
-	int students = 10000;
+	int students = 1000;
 	cout << "Array-based: " << endl;
 	for (int i = 0; i < 4; i++) {
 		auto start = chrono::steady_clock::now();
@@ -38,7 +38,7 @@ int main() {
 		case(3): {
 			for (int i = 0; i < students/2; i++) {
 				//db.removeStudent(db.getStudent(rand()%(1000-i)).getName());
-				db.removeStudent(rand() % (students - i));
+				db.removeStudent(rand() % (students - i)); // this part takes a really long time, I think it's because Vector copies everything to a new vector every time something is removed
 			}
 			break;
 		}

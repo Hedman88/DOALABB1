@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <cctype>
+#include <iostream>
 using namespace std;
 class Queue
 {
